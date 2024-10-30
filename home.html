@@ -25,34 +25,62 @@
             </ul>
         </nav>
     </header>
-    <div>
-        <label>From:</label>
+    <div class = "label" style="font-weight: bolder">
+        <label >From:</label>
         <input id="from" type="text" placeholder="Starting location">
         <label>To:</label>
         <input id="to" type="text" placeholder="Destination">
     </div>
     <!-- "Find a Ride" Button -->
     <div id="map"></div>
-    <button onclick="calculateRoute()">
-    <a href="Services.html" class="find-ride-btn">Find a Ride</a>
+    <button onclick="calculateRoute()"
+     href="Services.html" class="find-ride-btn">Find a Ride</a>
     </button>
     </div>
     <!-- Features Section -->
-    <section class="features">
-        <h2>Our Features</h2>
-        <div class="feature-item">
-            <h3>Fast Booking</h3>
-            <p>Book your rides quickly and easily with our simple interface.</p>
+    
+<!-- Features Section -->
+<section class="features">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images\rb_2148552969.png" height="10px" alt="Fast Booking Icon" class="feature-icon">
+                    <h3>Fast Booking</h3>
+                </div>
+                <div class="card-back">
+                    <p>Quick and easy booking process to get you on your way in no time.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature-item">
-            <h3>Reliable Rides</h3>
-            <p>We offer reliable transportation options tailored for your needs.</p>
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="" alt="Reliable Rides Icon" class="feature-icon">
+                    <h3>Reliable Rides</h3>
+                </div>
+                <div class="card-back">
+                    <p>Dependable ride services with trusted drivers for your peace of mind.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature-item">
-            <h3>Affordable Prices</h3>
-            <p>Enjoy competitive prices for all your transportation needs.</p>
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="affordable-prices-icon.png" alt="Affordable Prices Icon" class="feature-icon">
+                    <h3>Affordable Prices</h3>
+                </div>
+                <div class="card-back">
+                    <p>Cost-effective rates for a variety of travel needs, whether long or short distance.</p>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
 
     <!-- Testimonials Section -->
     <section class="testimonials">

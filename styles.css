@@ -9,19 +9,31 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #333;
+  
 }
 
 header {
   background-color: #FFD700;
   color: rgb(14, 14, 14);
   padding: 1rem 2rem;
-  font-weight: bold;
+  font-weight: bolder;
+  border-bottom: solid;
+  position :sticky;
+  top: 0;
+  display: block;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 .navbar {
-  display: flex;
+  display:flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+  margin-top: px;
+  
+  
+  
 }
 
 .nav-links {
@@ -44,38 +56,21 @@ header {
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
-
+.label{
+  overflow: hidden;
+  font-size: large;
+  line-height: 4.8;
+  width: 6;
+}
+.from{
+  line-height: 5;
+  width: 6;
+}
 #map {
   height: 500px;
   width: 90%;
   margin: 50px;
-  border: #000000;
-  border-radius: 5px;
-  border-color: #000000;
-  background-color: #000000;
-}
-
-#onclick{
-  color: #218838;
-}
-/* General Styles */
-
-/* Slideshow container */
-.slideshow-container {
-  position: relative;
-  max-width: 50%;
-  margin: auto;
   overflow: hidden;
-}
-
-/* Image slides */
-.mySlides {
-  display: none;
-}
-
-.mySlides img {
-  width: 30%;
-  height: 50%;
 }
 
 /* "Find a Ride" button */
@@ -85,10 +80,11 @@ header {
   margin: 20px auto;
   padding: 15px;
   background-color: #28a745;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   text-decoration: none;
   font-size: 18px;
+  font-weight: bold;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
@@ -97,32 +93,86 @@ header {
   background-color: #218838;
 }
 
-/* Features section */
+/* Features Section Styling */
 .features {
+  background-color: #FFD700;
   padding: 50px 20px;
-  background-color: #f8f9fa;
   text-align: center;
 }
 
 .features h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-.feature-item {
-  display: inline-block;
-  width: 30%;
-  margin: 15px;
+/* Card Flip Layout */
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 280px;
+  height: 300px;
+  perspective: 1000px; /* Enables 3D space for flipping */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Ensures 3D rotation */
+}
+
+.feature-card:hover .card-inner {
+  transform: rotateY(180deg); /* Flips the card on hover */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back when front is visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 10px 14px 18px rgba(0, 0, 0, 0.397);
+}
+
+.card-front {
+  background: #FFD700;
+}
+
+.card-back {
+  background: #007bff;
+  color: #FFD700;
+  transform: rotateY(180deg); /* Positions the back side */
+}
+
+/* Card Content Styling */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.card-front h3,
+.card-back p {
+  margin: 0;
 }
 
 /* Testimonials section */
 .testimonials {
   padding: 50px 20px;
-  background-color: #e9ecef;
+  background-color: #FFD700;
   text-align: center;
 }
 
@@ -136,8 +186,8 @@ header {
   width: 30%;
   margin: 15px;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFD700;
+  box-shadow: 10px 14px 8px rgba(0, 0, 0, 0.39);
   border-radius: 10px;
 }
 
