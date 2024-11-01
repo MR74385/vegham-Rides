@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vegham Rides</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7esSHkMSw6bWupgJK8oGBxg0gQNXj14&libraries=places"></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">VEGHAM RIDES</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="Myaccount.html" class="login-btn">Login/Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="label">
+        <label for="from">From:</label>
+        <input id="from" type="text" placeholder="Starting location">
+        
+        <label for="to">To:</label>
+        <input id="to" type="text" placeholder="Destination">
+    </div>
+    
+    <!-- <div class = "label" style="font-weight: bolder">
+        <label >From:</label>
+        <input id="from" type="text" placeholder="Starting location">
+        <label>To:</label>
+        <input id="to" type="text" placeholder="Destination">
+    </div> -->
+    <!-- "Find a Ride" Button -->
+    <div id="map"></div>
+    <button onclick="calculateRoute(); window.location.href='Myaccount.html';" class="find-ride-btn">
+        Find a Ride
+    </button>
+    </div>
+    <!-- Features Section -->
+    
+<!-- Features Section -->
+<section class="features">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images\rb_2148552969.png"  alt="Fast Booking Icon" class="feature-icon">
+                    <h3>Fast Booking</h3>
+                </div>
+                <div class="card-back">
+                    <p>Quick and easy booking process to get you on your way in no time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images\taxi-app-interface-concept.png" height="10px" alt="Reliable Rides Icon" class="feature-icon">
+                    <h3>Reliable Rides</h3>
+                </div>
+                <div class="card-back">
+                    <p>Dependable ride services with trusted drivers for your peace of mind.</p>
+                </div>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="affordable-prices-icon.png" alt="Affordable Prices Icon" class="feature-icon">
+                    <h3>Affordable Prices</h3>
+                </div>
+                <div class="card-back">
+                    <p>Cost-effective rates for a variety of travel needs, whether long or short distance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Riders Say</h2>
+        <div class="testimonial-item">
+            <p>"This service has made my commute so much easier. Highly recommended!"</p>
+            <p>- John Doe</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"Affordable and reliable rides. I use it every day!"</p>
+            <p>- Jane Smith</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"Best ride service in the area, always on time!"</p>
+            <p>- Mark Johnson</p>
+        </div>
+    </section>
+
+    <!-- Script for Google Maps API -->
+
+    <script>
+        let map, directionsService, directionsRenderer;
+
+        function initMap() {
+            // Initialize map
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 40.7128, lng: -74.0060 },
+                zoom: 12,
+            });
+
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+        }
+
+        function calculateRoute() {
+            const from = document.getElementById("from").value;
+            const to = document.getElementById("to").value;
+
+            if (from && to) {
+                directionsService.route(
+                    {
+                        origin: from,
+                        destination: to,
+                        travelMode: google.maps.TravelMode.DRIVING,
+                    },
+                    (response, status) => {
+                        if (status === "OK") {
+                            directionsRenderer.setDirections(response);
+                        } else {
+                            alert("Could not display directions due to: " + status);
+                        }
+                    }
+                );
+            } else {
+                alert("Please enter both a starting location and a destination.");
+            }
+        }
+        window.onload = initMap;
+        function onclick() {
+            calculateRoute()
+        }
+    </script>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Google Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi7esSHkMSw6bWupgJK8oGBxg0gQNXj14&libraries=places"></script>
+    <style>
+      /* Set the size of the map */
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Route Finder</h3>
+    <label>From:</label>
+    <input id="from" type="text" placeholder="Starting location" style="height: 25px, " >
+    <label>To:</label style="height: 25px">
+    <input id="to" type="text" placeholder="Destination">
+    <button onclick="calculateRoute()" style="height: 25px" npm >Show Route</button>
+
+    <div id="map"></div>
+
+    <script>
+      let map, directionsService, directionsRenderer;
+
+      function initMap() {
+        // Initialize map
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 40.7128, lng: -74.0060 },
+          zoom: 12,
+        });
+        function initAutocomplete() {
+    const fromInput = document.getElementById("from");
+    const toInput = document.getElementById("to");
+
+    // Add autocomplete for both input fields
+    const fromAutocomplete = new google.maps.places.Autocomplete(fromInput);
+    const toAutocomplete = new google.maps.places.Autocomplete(toInput);
+}
+
+        
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+      }
+
+      function calculateRoute() {
+        const from = document.getElementById("from").value;
+        const to = document.getElementById("to").value;
+
+        if (from && to) {
+          directionsService.route(
+            {
+              origin: from,
+              destination: to,
+              travelMode: google.maps.TravelMode.DRIVING,
+            },
+            (response, status) => {
+              if (status === "OK") {
+                directionsRenderer.setDirections(response);
+              } else {
+                alert("Could not display directions due to: " + status);
+              }
+            }
+          );
+        } else {
+          alert("Please enter both a starting location and a destination.");
+        }
+      }
+
+      window.onload = initMap;
+      window.onload = initAutocomplete();
+    </script>
+  </body>
+</html>

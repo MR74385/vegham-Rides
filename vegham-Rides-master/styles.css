@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFD700;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  
+}
+
+header {
+  background-color: #FFD700;
+  color: rgb(14, 14, 14);
+  padding: 1rem 2rem;
+  font-weight: bolder;
+  border-bottom: solid;
+  position :sticky;
+  top: 0;
+  display: block;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.navbar {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: px;
+  
+  
+  
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.login-btn {
+  
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+ 
+.label {
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column; /* Stack labels and inputs vertically */
+  align-items: center; /* Center inputs horizontally */
+  margin: 20px 0; /* Add margin for spacing */
+}
+
+input {
+  margin-top: 0.5rem; /* Space between label and input */
+  width: 300px; /* Set a fixed width for inputs */
+  padding: 0.5rem; /* Add some padding */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.from{
+  line-height: 5; /* Unitless line-height */
+  width: 100%; /* Use a unit for width, e.g., percentage or pixels */
+  padding: 0.5rem; /* Optional: Add some padding for better appearance */
+  box-sizing: border-box;
+  text-align: center;
+}
+#map {
+  height: 500px;
+  width: 90%;
+  margin: 50px;
+  overflow: hidden;
+}
+
+/* "Find a Ride" button */
+.find-ride-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #28a745;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.find-ride-btn:hover {
+  background-color: #218838;
+}
+
+/* Features Section Styling */
+.features {
+  background-color: #FFD700;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Card Flip Layout */
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 280px;
+  height: 300px;
+  perspective: 1000px; /* Enables 3D space for flipping */
+}
+
+.card-inner {
+  position: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Ensures 3D rotation */
+}
+
+.feature-card:hover .card-inner {
+  transform: rotateY(180deg); /* Flips the card on hover */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back when front is visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 10px 14px 18px rgba(0, 0, 0, 0.397);
+}
+
+.card-front {
+  background: #FFD700;
+}
+
+.card-back {
+  background: #007bff;
+  color: #FFD700;
+  transform: rotateY(180deg); /* Positions the back side */
+}
+
+/* Card Content Styling */
+.feature-icon {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.card-front h3,
+.card-back p {
+  margin: 0;
+}
+
+/* Testimonials section */
+.testimonials {
+  padding: 50px 20px;
+  background-color: #FFD700;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.testimonial-item {
+  display: inline-block;
+  width: 30%;
+  margin: 15px;
+  padding: 20px;
+  background-color: #FFD700;
+  box-shadow: 10px 14px 8px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+}
+
+.testimonial-item p {
+  font-style: italic;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.social-icons img {
+  width: 30px;
+  margin: 0 1rem;
+}
